@@ -12,8 +12,13 @@
         </div>
         <div style = "text-align: center" >
             <form action="https://www.google.com/search">
-            <input type="text" name="q">
-            <input type="submit" value="Advanced Search">
+                <!-- all these words -->
+                <input type="hidden" name="tbm" value="vid">
+                <input type="text" name="q" placeholder="All these words"> <br>
+                <input type="text" name="q" placeholder="This exact word or phrase"> <br>
+                <input type="text" name="q" placeholder="Any of these words"> <br>
+                <input type="text" name="q" placeholder="None of these words"> <br>
+                <input type="submit" value="Advanced Search">
             </form>
         </div>  
     </body>

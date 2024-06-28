@@ -11,9 +11,10 @@
             <a href = "index.html"> Google Search </a>
         </div>
         <div style = "text-align: center" >
-            <form action="https://www.google.com/search">
-            <input type="text" name="q">
-            <input type="submit" value="Image Search">
+            <form action="https://www.google.com/search" method="get">
+                <input type="hidden" name="tbm" value="isch">
+                <input type="text" name="q" placeholder="Enter your search query">
+                <input type="submit" value="Image Search">
             </form>
         </div>  
     </body>
