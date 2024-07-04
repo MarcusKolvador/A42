@@ -19,7 +19,6 @@
                 let none = document.getElementById("none").value.trim();
 
                 let components = []
-                
 
                 if (all !== "") {
                     components.push(encodeURIComponent(all));
@@ -28,12 +27,12 @@
                     components.push(encodeURIComponent(`"${exact}"`));
                 }
                 if (any !== "") {
-                    let parts_any = any.split(" ");
+                    let parts_any = any.replace(/\s+/g, ' ').split(" ");
                     let joined_any = parts_any.join(" OR ");
                     components.push(encodeURIComponent(joined_any));
                 }
                 if (none !== "") {
-                    let parts_none = none.split(" ");
+                    let parts_none = none.replace(/\s+/g, ' ').split(" ");
                     let joined_none = parts_none.map(item => "-" + item).join(" ");
                     components.push(encodeURIComponent(joined_none));
                 }           
