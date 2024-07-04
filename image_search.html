@@ -8,6 +8,17 @@
         <style>
             .search-container {
                 padding: 20px;
+                min-height: 100vh; /* Full viewport height */
+                display: flex;
+                justify-content: center;
+                flex-direction: column; /* or row, depending on your layout */
+            }
+
+            .search-input {
+                width: 100%;
+                padding: 10px; /* Adjust padding as needed */
+                font-size: 1rem; /* Adjust font size as needed */
+                flex: 1; /* This makes the input field expand to fill available space */
             }
         </style>
     </head>
@@ -19,11 +30,11 @@
             </div>
     
             <!-- Image Search Form -->
-            <div style="text-align: center; margin-top: 20px;">
+            <div class="search-container" style="text-align: center; margin-top: 20px;">
                 <form action="https://www.google.com/search" method="get">
                     <input type="hidden" name="tbm" value="isch">
                     <div class="input-group mb-3">
-                        <input type="text" name="q" class="form-control rounded-pill" placeholder="Enter your search query" aria-label="Search query">
+                        <input type="text" name="q" class="form-control rounded-pill search-input" placeholder="Enter your search query" aria-label="Search query">
                     </div>
                     <button type="submit" class="btn btn-primary">Image Search</button>
                 </form>
