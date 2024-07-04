@@ -12,30 +12,34 @@
         </style>
         <script>
             function wrap_input() {
-                let all = document.getElementById("all").value;
-                let exact = document.getElementById("exact").value;
-                let any = document.getElementById("any").value;
-                let none = document.getElementById("none").value
+                // initialize
+                let all = document.getElementById("all").value.trim();
+                let exact = document.getElementById("exact").value.trim();
+                let any = document.getElementById("any").value.trim();
+                let none = document.getElementById("none").value.trim();
 
-                // Wrap exact with double quotes
-                let wrapped_exact = `"${exact}"`;
+                let components = []
+                
 
-                // seperate any by "or"
-                let parts_any = any.split(" ")
-                let joined_any = parts_any.join(" OR ")
-
-                // seperate none
-                let parts_none = none.split(" ")
-                let joined_none = parts_none.map(item => "-" + item).join(" ");
-
-                // Encode the values for URL safety
-                let encoded_all = encodeURIComponent(all);
-                let encoded_exact = encodeURIComponent(wrapped_exact);
-                let encoded_any = encodeURIComponent(joined_any)
-                let encoded_none = encodeURIComponent(joined_none)
+                if (all !== "") {
+                    components.push(encodeURIComponent(all));
+                }
+                if (exact !== "") {
+                    components.push(encodeURIComponent(`"${exact}"`));
+                }
+                if (any !== "") {
+                    let parts_any = any.split(" ");
+                    let joined_any = parts_any.join(" OR ");
+                    components.push(encodeURIComponent(joined_any));
+                }
+                if (none !== "") {
+                    let parts_none = none.split(" ");
+                    let joined_none = parts_none.map(item => "-" + item).join(" ");
+                    components.push(encodeURIComponent(joined_none));
+                }           
 
                 // Construct the search URL
-                let searchUrl = `https://www.google.com/search?q=${encoded_all}+${encoded_exact}+${encoded_any}+${encoded_none}`;
+                let searchUrl = 'https://www.google.com/search?q=' + components.join('+');
 
                 // Redirect to the constructed search URL
                 window.location.href = searchUrl;
