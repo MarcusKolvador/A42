@@ -1,0 +1,14 @@
+.search-container {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    flex: 1;
+}
